@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    cin >> s;
+
+    int freq[256] = {0};
+    int leftmost = -1;
+
+    for (int i = 0; i < s.size(); i++) {
+        freq[(unsigned char)s[i]]++;
+    }
+
+    for (int i = 0; i < s.size(); i++) {
+        if (freq[(unsigned char)s[i]] > 1) {
+            leftmost = i;
+            break;
+        }
+    }
+
+    if (leftmost != -1)
+        cout << "Leftmost repeating character: " << s[leftmost] << endl;
+    else
+        cout << "No repeating character found" << endl;
+
+    return 0;
+}
