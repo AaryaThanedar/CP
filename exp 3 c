@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int power(int n, int m) {
+    if (m == 0)
+        return 1;
+    return n * power(n, m - 1);
+}
+
+int main() {
+    int N, M;
+    cout << "Enter the number: ";
+    cin >> N;
+    cout << "Enter the power: ";
+    cin >> M;
+    cout << N << "^" << M << " = " << power(N, M) << endl;
+    return 0;
+}
