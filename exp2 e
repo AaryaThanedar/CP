@@ -1,0 +1,15 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double stirlingApproximation(int n) {
+    return sqrt(2 * M_PI * n) * pow(n / M_E, n);
+}
+
+int main() {
+    int n;
+    cin >> n;
+    cout << "Stirling approximation of " << n << "! = " 
+         << stirlingApproximation(n) << endl;
+    return 0;
+}
