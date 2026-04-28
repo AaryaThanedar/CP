@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+Node* top = NULL;
+
+void push(int x) {
+    Node* temp = new Node();
+    temp->data = x;
+    temp->next = top;
+    top = temp;
+}
+
+void pop() {
+    if (top == NULL) {
+        cout << "Underflow\n";
+        return;
+    }
+    Node* temp = top;
+    top = top->next;
+    delete temp;
+}
+
+void peek() {
+    if (top == NULL) {
+        cout << "Empty\n";
+        return;
+    }
+    cout << top->data << endl;
+}
+
+void display() {
+    Node* temp = top;
+    while (temp != NULL) {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+}
+
+int main() {
+    push(10);
+    push(20);
+    push(30);
+    display();
+    pop();
+    display();
+    peek();
+    return 0;
+}
