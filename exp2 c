@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int maxANDValue(int arr[], int n) {
+    int maxVal = 0;
+
+   
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            int andVal = arr[i] & arr[j];
+            if (andVal > maxVal) {
+                maxVal = andVal;
+            }
+        }
+    }
+    return maxVal;
+}
+
+int main() {
+    int arr[] = {4, 8, 12, 16};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    cout << "Maximum AND value: " << maxANDValue(arr, n) << endl;
+    return 0;
+}
