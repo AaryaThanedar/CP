@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int MAX = 5;
+    int stack[MAX];
+    int top = -1;
+
+    for (int i = 1; i <= MAX; i++) {
+        if (top == MAX - 1) {
+            cout << "Stack overflow" << endl;
+            break;
+        }
+        stack[++top] = i * 10;
+    }
+
+    cout << "Stack elements: ";
+    for (int i = 0; i <= top; i++) {
+        cout << stack[i] << " ";
+    }
+    cout << endl;
+
+    while (top >= 0) {
+        cout << "Popped: " << stack[top--] << endl;
+    }
+
+    return 0;
+}
