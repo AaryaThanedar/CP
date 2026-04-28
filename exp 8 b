@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string srcString, findString;
+    cout << "Enter source string: ";
+    cin >> srcString;
+    cout << "Enter string to find: ";
+    cin >> findString;
+
+    if (srcString.find(findString) != string::npos)
+        cout << "Substring is present" << endl;
+    else
+        cout << "Substring is not present" << endl;
+
+    return 0;
+}
