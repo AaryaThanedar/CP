@@ -1,0 +1,55 @@
+#include <iostream>
+#include <vector>
+#include <iomanip>
+using namespace std;
+
+void inputMatrix(vector<vector<int>> &mat, int r, int c) {
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            cin >> mat[i][j];
+        }
+    }
+}
+
+void displayMatrix(const vector<vector<int>> &mat) {
+    for (const auto &row : mat) {
+        for (const auto &val : row) {
+            cout << setw(5) << val;
+        }
+        cout << endl;
+    }
+}
+
+vector<vector<int>> transposeMatrix(const vector<vector<int>> &mat, int r, int c) {
+    vector<vector<int>> trans(c, vector<int>(r));
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            trans[j][i] = mat[i][j];
+        }
+    }
+    return trans;
+}
+
+int main() {
+    int rows, cols;
+
+    cout << "Enter number of rows: ";
+    cin >> rows;
+    cout << "Enter number of columns: ";
+    cin >> cols;
+
+    vector<vector<int>> matrix(rows, vector<int>(cols));
+
+    cout << "Enter matrix elements:\n";
+    inputMatrix(matrix, rows, cols);
+
+    cout << "\nOriginal Matrix:\n";
+    displayMatrix(matrix);
+
+    vector<vector<int>> transposed = transposeMatrix(matrix, rows, cols);
+
+    cout << "\nTransposed Matrix:\n";
+    displayMatrix(transposed);
+
+    return 0;
+}
